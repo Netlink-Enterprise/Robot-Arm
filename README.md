@@ -1,63 +1,38 @@
-Markdown
+# Robotic Arm Project (Mini Servos & OpenSCAD)
 
-# Mini Servo Robotic Arm Firmware & Control System
+A fully open-source robotic arm designed for precision control, custom 3D printing, and microcontroller integration. This repository contains the complete CAD designs, OpenSCAD parametric files, and control scripts.
 
-A clean, modular control and automation script package designed for multi-axis mini servo robotic arms (compatible with SG90 / MG996R servos and microcontroller setups).
+## Project Overview
+This project focuses on building a lightweight, high-precision robotic arm powered by mini servos. It features custom mechanical drivetrain components, OpenSCAD parametric scripts for rapid prototyping, and flexible hardware integration.
 
----
+## Features
+- **Precision Articulation:** Multi-degree-of-freedom kinematic movement powered by mini servos.
+- **Parametric OpenSCAD Models:** Fully customizable structural and mechanical components.
+- **Microcontroller Integration:** Compatible with Raspberry Pi and Arduino setups.
+- **3D Printing Optimized:** Engineered for clean printing with minimal support structures.
 
-## 🚀 System Architecture
+## Bill of Materials (BOM)
+- Mini Servos
+- Microcontroller (Raspberry Pi / Arduino compatible)
+- 3D Printed Mechanical & Structural Components
+- Fasteners (M2/M3 screws, nuts)
 
-```text
-[ Host Device / Python Script ] 
-       │ (Serial / USB)
-       ▼
-[ Arduino / Microcontroller ] ──► [ PWM Servos (Base, Shoulder, Elbow, Gripper) ]
+## Assembly & Setup Guide
+1. **3D Printing & CAD:**
+   - Render and export `.stl` files from your OpenSCAD parametric scripts.
+   - Print structural arms, joints, and drivetrain components.
+2. **Hardware Assembly:**
+   - Mount mini servos securely into the 3D printed chassis and joint slots.
+   - Fasten mechanical linkages using appropriate hardware.
+3. **Wiring & Electronics:**
+   - Connect servo signal lines, power, and ground directly to your microcontroller interface.
+   - Use an adequate, stable external power supply for the servos to avoid power drops.
+4. **Software & Control:**
+   - Deploy your control scripts to command the servo movements across all axes.
 
-🛠️ Hardware Requirements
-Component	Description
-Microcontroller / SBC	Arduino Uno / Nano or Raspberry Pi
-Actuators	4x to 6x Mini Servos (SG90 or high-torque variants)
-Power Supply	External 5V DC Power Source (Isolated from microcontroller logic pins to prevent voltage drops)
-Chassis	3D-printed robotic arm mechanical assembly
-📂 Repository Structure
-Plaintext
+## Videos & References
+- **Assembly Tutorial Reference:** ElRobot | Open-Source 3D printed robotic arm for AI[cite: 4]
+- **Project Documentation:** MakerWorld Published Project ("Robotic Arm (For Mini Servos only)")[cite: 4]
 
-├── firmware/
-│   └── arduino_servo_control.ino   # Arduino sketch for direct serial-controlled positioning
-├── software/
-│   └── python_pca9685/             # Python script for I2C / PCA9685 driver boards
-└── README.md
-
-⚙️ Pinout Configuration (Arduino Direct Control)
-Joint / Actuator	Arduino Digital Pin
-Base Servo	Pin 3
-Shoulder Servo	Pin 5
-Elbow Servo	Pin 6
-Gripper Servo	Pin 9
-📥 Installation & Quick Start
-1. Arduino Firmware Setup
-
-    Open the Arduino IDE.
-
-    Load the sketch from firmware/arduino_servo_control.ino.
-
-    Select your board and port, then upload the code to your microcontroller.
-
-    Open the Serial Monitor at a baud rate of 115200.
-
-2. Sending Serial Commands
-
-You can manually command individual joints in real-time by sending single-character commands followed by target angles:
-
-    B90 — Move Base to 90 degrees
-
-    S45 — Move Shoulder to 45 degrees
-
-    E120 — Move Elbow to 120 degrees
-
-    G30 — Move Gripper to 30 degrees
-
-📜 License
-
-Distributed under the MIT License. Feel free to modify, fork, and adapt for your own builds.
+## License
+Open-source hardware and software project. Feel free to modify, adapt, and build upon these designs.[cite: 4]
