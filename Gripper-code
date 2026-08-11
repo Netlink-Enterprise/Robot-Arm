@@ -1,0 +1,36 @@
+#include <Servo.h>
+
+Servo clawServo;  // Create servo object to control the claw
+
+const int servoPin = 9;   // Pin connected to the servo signal wire (orange/yellow)
+
+// Define the exact angles for your mechanical setup 
+// (You can tweak these numbers if 0 and 90 don't fully match your physical window/claw range)
+const int CLAW_CLOSED = 0;   
+const int CLAW_OPEN = 90;    
+
+void setup() {
+  Serial.begin(9600);
+  clawServo.attach(servoPin);
+  
+  // Start with the claw in the closed position as requested
+  clawServo.write(CLAW_CLOSED);
+  Serial.println("System Ready. Claw is currently CLOSED.");
+  Serial.println("Send 'o' to OPEN or 'c' to CLOSE.");
+}
+
+void loop() {
+  // Check if data has been sent from the Serial Monitor
+  if (Serial.available() > 0) {
+    char command = Serial.read();
+    
+    if (command == 'o' || command == 'O') {
+      clawServo.write(CLAW_OPEN);
+      Serial.println("Command received: Opening claw/window...");
+    } 
+    else if (command == 'c' || command == 'C') {
+      clawServo.write(CLAW_CLOSED);
+      Serial.println("Command received: Closing claw/window...");
+    }
+  }
+}
