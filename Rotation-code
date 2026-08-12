@@ -1,0 +1,32 @@
+#include <Servo.h>
+
+Servo myServo;
+const int servoPin = 9; // Pin connected to the servo signal wire
+
+void setup() {
+  Serial.begin(9600);
+  myServo.attach(servoPin);
+  
+  // Start at 0 degrees
+  myServo.write(0);
+  
+  Serial.println("Servo Console Control Ready.");
+  Serial.println("Type '1' to move to 180 degrees.");
+  Serial.println("Type '0' to move to 0 degrees.");
+}
+
+void loop() {
+  // Check if data is available in the Serial Monitor
+  if (Serial.available() > 0) {
+    char command = Serial.read();
+    
+    if (command == '1') {
+      myServo.write(180);
+      Serial.println("-> Moved to 180 degrees.");
+    } 
+    else if (command == '0') {
+      myServo.write(0);
+      Serial.println("-> Moved to 0 degrees.");
+    }
+  }
+}
