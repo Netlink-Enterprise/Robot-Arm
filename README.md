@@ -38,7 +38,7 @@ Various M3 Bolts (6mm, 10mm, 14mm) and Jumper Cables
 ## Videos & Channel Resources
 - **How to make a Robot Arm Part 1:** [Watch on YouTube](http://www.youtube.com/watch?v=B7DOIcJUKPQ) 
 - **How to make a Robot Arm Part 2:** [Watch on YouTube](https://www.youtube.com/watch?v=3IvBCynKszU&t=9s)
-- **How to make a Robot Arm Part 2:** [Watch on YouTube](https://www.youtube.com/watch?v=Ojr6bNMNPXQ)
+- **How to make a Robot Arm Part 3:** [Watch on YouTube](https://www.youtube.com/watch?v=Ojr6bNMNPXQ)
 
 ## License
 Open-source hardware and software project. Feel free to modify, adapt, and build upon these designs.
